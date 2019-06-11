@@ -1,0 +1,25 @@
+<ni-card [title]="'Konexus'" [align]="'center'">
+  <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+    <md-input-container>
+      <input mdInput placeholder="Usuario" value="" [(ngModel)]="users.user" name="user">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Contraseña" value="" type="password" [(ngModel)]="users.password" name="password">
+    </md-input-container>
+
+    <div class="text-left mb-module">
+      <md-checkbox>
+       Recordar sessión
+      </md-checkbox>
+    </div>
+
+    <button md-raised-button color="primary" type="submit">Ingresar</button>
+
+    <div class="additional-info">
+      <!-- <a href="extra-layout/sign-up">Sign up</a> -->
+      <span class="divider"></span>
+      <a href="extra-layout/forgot">Olvidaste tu contraseña ?</a>
+    </div>
+  </form>
+</ni-card>
