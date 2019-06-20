@@ -30,11 +30,16 @@ export class LoginComponent implements OnInit {
     });
     debugger;
     // http://localhost:65505/api/Values 
-    let yibambe = this.http.get("https://kws20190606050927.azurewebsites.net/api/values").pipe().subscribe(x => {
+    // let yibambe = this.http.get("https://kws20190606050927.azurewebsites.net/api/values").pipe().subscribe(x => {
+    //   console.dir(x);
+    // });
+
+    this.service.Consume("https://kws20190606050927.azurewebsites.net/api/values").subscribe(x => {
       console.dir(x);
     });
 
-    
+
+
 
   }
 

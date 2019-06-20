@@ -40,6 +40,9 @@ export class SharedService {
   //   });
   // }
 
+  public Consume(actionParam) {
+    return this.http.get(actionParam).pipe();
+  }
 
   public Execute(dataParam, actionParam, methodParam) {
     const headers = new HttpHeaders({ 'Content-Type': 'text/plain' });
