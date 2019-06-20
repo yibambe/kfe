@@ -24,6 +24,10 @@ export const MENU: any = [
       {
         title: 'Dashboard v2',
         routing: '/default-layout/dashboard-2'
+      },
+      {
+        title: 'Dashboard v3',
+        routing: '/default-layout/dashboard-3'
       }
     ]
   },
@@ -200,9 +204,17 @@ export const MENU: any = [
         routing: '/default-layout/ni-cards'
       },
       {
+        title: 'Chat',
+        routing: '/default-layout/ni-chat'
+      },
+      {
         title: 'Files',
         routing: '/default-layout/ni-files'
-      }
+      },
+      {
+        title: 'Vertical timeline',
+        routing: '/default-layout/ni-v-timeline'
+      },
     ]
   },
   {
@@ -227,8 +239,8 @@ export const MENU: any = [
         routing: '/default-layout/simple-table'
       },
       {
-        title: 'Editing table',
-        routing: '/default-layout/editing-table'
+        title: 'Sorting table',
+        routing: '/default-layout/sorting-table'
       },
       {
         title: 'Filtering table',

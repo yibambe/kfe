@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../../layouts/shared-service';
 
-const breadcrumb: any[] = [
+const BREADCRUMBS: any[] = [
   {
     title: 'UI Elements',
     link: '#'
@@ -63,6 +63,7 @@ const notes = [
     updated: 'Jan 17, 2017'
   }
 ];
+const typesOfShoes = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 
 @Component({
   moduleId: module.id,
@@ -72,11 +73,12 @@ const notes = [
 })
 export class PageListComponent implements OnInit {
   pageTitle: string = 'List';
-  breadcrumb: any[] = breadcrumb;
+  breadcrumb: any[] = BREADCRUMBS;
   links = links;
   messages = messages;
   folders = folders;
   notes = notes;
+  typesOfShoes = typesOfShoes;
 
   constructor( private _sharedService: SharedService ) {
     this._sharedService.emitChange(this.pageTitle);

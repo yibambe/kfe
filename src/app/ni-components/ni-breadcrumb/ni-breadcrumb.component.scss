@@ -20,10 +20,10 @@
       .static {
         .icon {
           font-size: 1rem;
-          margin-right: 6px;
+          margin-right: 11px;
 
           .rtl & {
-            margin-left: 6px;
+            margin-left: 11px;
             margin-right: 0;
           }
         }
@@ -54,7 +54,7 @@
           color: main-contrast(500);
           display: inline-block;
           height: 36px;
-          padding: 5px ($module-rem * 2);
+          padding: 7px ($module-rem * 2) 3px;
           position: relative;
           transition:
             background .2s $animation,
@@ -62,7 +62,7 @@
           vertical-align: top;
           @media #{$max767} {
             height: auto;
-            padding: 2px $module-rem;
+            padding: 3px $module-rem 1px;
           }
 
           &:before,
@@ -71,11 +71,11 @@
             border-color: transparent;
             content: '';
             display: block;
-            height: 0px;
+            height: 0;
             position: absolute;
-            top: 0px;
+            top: 0;
             transition: border-color .2s $animation;
-            width: 0px;
+            width: 0;
             @media #{$max767} {
               display: none;
 
@@ -161,7 +161,7 @@
           color: main-contrast(500);
           display: inline-block;
           height: 36px;
-          padding: 5px ($module-rem * 2);
+          padding: 7px ($module-rem * 2) 3px;
           position: relative;
           transition:
             background .2s $animation,
@@ -169,7 +169,7 @@
           vertical-align: top;
           @media #{$max767} {
             height: auto;
-            padding: 2px $module-rem;
+            padding: 3px $module-rem 1px;
           }
 
           &:before,
@@ -178,11 +178,11 @@
             border-color: transparent;
             content: '';
             display: block;
-            height: 0px;
+            height: 0;
             position: absolute;
-            top: 0px;
+            top: 0;
             transition: border-color .2s $animation;
-            width: 0px;
+            width: 0;
             @media #{$max767} {
               display: none;
             }

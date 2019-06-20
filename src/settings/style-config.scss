@@ -93,9 +93,10 @@ $error-color: #e24d4d;
 $error-contrast: #fff;
 
 //Main
-$mainBg: #f8f8f8;
+$main-bg: #f8f8f8;
+$main-text-color: #000;
 $main-fs: 16px;
-$main-ff: Arial, 'Roboto','Josefin Sans', sans-serif ;
+$main-ff:  sans-serif,'Josefin Sans';
 $main-fw: 400;
 $module: 11px;
 $main-lh: ($module * 2 / $main-fs);
@@ -103,7 +104,7 @@ $module-rem: ($module / $main-fs) * 1rem;
 $shape: 3px;
 
 //Second
-$second-ff: Arial, 'Roboto','Josefin Slab', serif;
+$second-ff: serif,'Josefin Slab' ;
 
 //Animationng serve
 $animation: ease-in-out;

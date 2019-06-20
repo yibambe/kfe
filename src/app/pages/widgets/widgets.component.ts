@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../layouts/shared-service';
 
-const breadcrumb: any[] = [
+const BREADCRUMBS: any[] = [
   {
     title: 'Main',
     link: '#'
@@ -96,7 +96,7 @@ const folders: any[] = [
 })
 export class PageWidgetsComponent implements OnInit {
   pageTitle: string = 'Widgets';
-  breadcrumb: any[] = breadcrumb;
+  breadcrumb: any[] = BREADCRUMBS;
   lat: number = 50.4664212;
   lng: number = 30.6;
   messages = messages;

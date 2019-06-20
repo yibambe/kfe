@@ -1,13 +1,13 @@
 <ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>
 
 <ni-card [title]="'Snackbar config'">
-  <md-input-container>
-    <input mdInput value="Disco party!" placeholder="Message" #message>
-  </md-input-container>
+  <mat-form-field>
+    <input matInput placeholder="Message" value="Disco party!" #message>
+  </mat-form-field>
 
-  <md-input-container>
-    <input mdInput value="Dance" placeholder="Action" #action>
-  </md-input-container>
+  <mat-form-field>
+    <input matInput placeholder="Action" value="Dance" #action>
+  </mat-form-field>
 
-  <button md-raised-button color="primary" (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>
+  <button mat-raised-button color="primary" (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>
 </ni-card>

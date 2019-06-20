@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../../layouts/shared-service';
 
-const breadcrumb: any[] = [
+const BREADCRUMBS: any[] = [
   {
     title: 'UI Elements',
     link: '#'
@@ -22,7 +22,7 @@ const breadcrumb: any[] = [
 })
 export class PageFormLayoutComponent implements OnInit {
   pageTitle: string = 'Form layout';
-  breadcrumb: any[] = breadcrumb;
+  breadcrumb: any[] = BREADCRUMBS;
 
   constructor( private _sharedService: SharedService ) {
     this._sharedService.emitChange(this.pageTitle);

@@ -1,6 +1,7 @@
 @import '../../../assets/sass/variable';
 
 :host {
+  box-sizing: border-box;
   display: inline-block;
 
   .badge {
@@ -9,9 +10,9 @@
     color: main-contrast(500);
     font-size: .75rem;
     font-family: $main-ff;
-    line-height: $main-lh;
+    line-height: 1;
     min-width: 20px;
-    padding: 1px 6px;
+    padding: 3px 6px 1px;
     position: relative;
     text-align: center;
 
@@ -103,21 +104,21 @@
       margin-left: 6px;
     }
     &.large-badge {
-      padding: 6px 20px;
+      padding: 8px 20px 6px;
 
       &.border-radius-badge {
         border-radius: 15px;
       }
     }
     &.medium-badge {
-      padding: 3px 12px;
+      padding: 5px 12px 3px;
 
       &.border-radius-badge {
         border-radius: 12px;
       }
     }
   }
-  md-icon & {
+  .mat-icon & {
     .badge {
       bottom: 100%;
       left: 100%;

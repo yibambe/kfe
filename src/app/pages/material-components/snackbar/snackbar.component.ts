@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../../layouts/shared-service';
-import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
-const breadcrumb: any[] = [
+const BREADCRUMBS: any[] = [
   {
     title: 'UI Elements',
     link: '#'
@@ -25,11 +25,11 @@ const breadcrumb: any[] = [
 })
 export class PageSnackbarComponent {
   pageTitle: string;
-  breadcrumb: any[] = breadcrumb;
+  breadcrumb: any[] = BREADCRUMBS;
   sidebar: boolean;
   navbar: boolean;
 
-  constructor( public snackBar: MdSnackBar, private _sharedService: SharedService ) {
+  constructor( public snackBar: MatSnackBar, private _sharedService: SharedService ) {
     this.pageTitle = 'Snackbar';
     this.sidebar = true;
     this.navbar = true;

@@ -1,12 +1,19 @@
+import { throwError as observableThrowError } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { IMenuItem } from './menu-item';
-import { MENUITEMS } from './mock-menu-items';
-import { MENU } from '../../../../settings/menu';
-
-@Injectable()
+@Injectable({
+	providedIn: 'root'
+})
 export class MenuService {
-  getMenuItems(): Promise<IMenuItem[]> {
-    return Promise.resolve(MENUITEMS);
-  }
+	constructor(private http: HttpClient) { }
+
+	public getData() {
+		const URL: string = '../../../../assets/data/main-menu.json';
+		return this.http.get(URL);
+	}
+
+	public handleError(error: any) {
+		return observableThrowError(error.error || 'Server Error');
+	}
 }

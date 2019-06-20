@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../../layouts/shared-service';
 import { single1, single2, multi1, multi2, multi3 } from './data';
 
-const breadcrumb: any[] = [
+const BREADCRUMBS: any[] = [
   {
     title: 'UI Elements',
     link: '#'
@@ -23,7 +23,7 @@ const breadcrumb: any[] = [
 })
 export class PageNgxChartsComponent implements OnInit {
   pageTitle: string = 'Ngx Charts';
-  breadcrumb: any[] = breadcrumb;
+  breadcrumb: any[] = BREADCRUMBS;
   single1: any[];
   single2: any[];
   multi1: any[];

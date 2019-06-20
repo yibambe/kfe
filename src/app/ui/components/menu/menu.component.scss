@@ -40,7 +40,7 @@
           background: menu(item-bg);
           color: menu(item-color);
           display: flex;
-          font-size: 1rem;
+          font-size: .9rem;
           font-weight: 400;
           justify-content: space-between;
           min-height: ($module-rem * 4);
@@ -64,7 +64,7 @@
             font-size: 10px;
             line-height: 1;
             margin: 0 ($module-rem / 2);
-            padding: 3px 6px;
+            padding: 4px 6px 2px;
           }
           .icon {
             color: menu(icon-color);

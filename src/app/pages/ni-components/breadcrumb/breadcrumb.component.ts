@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../../layouts/shared-service';
 import { Item } from './item';
 
-const breadcrumb: Item[] = [
+const BREADCRUMBS: Item[] = [
   {
     title: 'Home',
-    link: 'dashboard',
+    link: '#',
     icon: ''
   },
   {
     title: 'UI Elements',
-    link: 'dashboard',
+    link: '#',
     icon: ''
   },
   {
     title: 'Components',
-    link: 'dashboard',
+    link: '#',
     icon: ''
   },
   {
@@ -24,20 +24,20 @@ const breadcrumb: Item[] = [
     icon: ''
   }
 ];
-const breadcrumbIcon: Item[] = [
+const BREADCRUMBSICON: Item[] = [
   {
     title: 'Home',
-    link: 'dashboard',
+    link: '#',
     icon: 'fa fa-home'
   },
   {
     title: 'UI Elements',
-    link: 'dashboard',
+    link: '#',
     icon: 'fa fa-paper-plane'
   },
   {
     title: 'Components',
-    link: 'dashboard',
+    link: '#',
     icon: 'fa fa-shopping-bag'
   },
   {
@@ -54,8 +54,8 @@ const breadcrumbIcon: Item[] = [
 })
 export class PageNiBreadcrumbsComponent implements OnInit {
   pageTitle: string = 'Breadcrumbs';
-  breadcrumb: Item[] = breadcrumb;
-  breadcrumbIcon: Item[] = breadcrumbIcon;
+  breadcrumb: Item[] = BREADCRUMBS;
+  breadcrumbIcon: Item[] = BREADCRUMBSICON;
 
   constructor( private _sharedService: SharedService ) {
     this._sharedService.emitChange(this.pageTitle);

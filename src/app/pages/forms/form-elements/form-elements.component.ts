@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import 'rxjs/add/operator/startWith';
+
+import { startWith, map  } from 'rxjs/operators';
+
 import { SharedService } from '../../../layouts/shared-service';
 
-const breadcrumb: any[] = [
+const BREADCRUMBS: any[] = [
   {
     title: 'UI Elements',
     link: '#'
@@ -25,7 +27,7 @@ const breadcrumb: any[] = [
 })
 export class PageFormElementsComponent implements OnInit {
   pageTitle: string = 'Form elements';
-  breadcrumb: any[] = breadcrumb;
+  breadcrumb: any[] = BREADCRUMBS;
   stateCtrl: FormControl;
   filteredStates: any;
 
@@ -103,8 +105,10 @@ export class PageFormElementsComponent implements OnInit {
   constructor( private _sharedService: SharedService ) {
     this.stateCtrl = new FormControl();
     this.filteredStates = this.stateCtrl.valueChanges
-      .startWith(null)
-      .map(name => this.filterStates(name));
+      .pipe(
+				startWith(null),
+				map(name => this.filterStates(name))
+			);
 
     this._sharedService.emitChange(this.pageTitle);
   }

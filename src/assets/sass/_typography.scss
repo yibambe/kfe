@@ -3,7 +3,8 @@ html {
   line-height: 22px;
 }
 body {
-  background: $mainBg;
+  background: $main-bg;
+  color: $main-text-color;
   font-family: $main-ff;
   font-size: 1rem;
   font-weight: $main-fw;
@@ -112,7 +113,7 @@ button {
 }
 .form-message {
   left: 0;
-  margin-top: .1rem;
+  margin-top: .2rem;
   position: absolute;
   top: 100%;
   width: 100%;

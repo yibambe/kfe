@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { SharedService } from '../../../layouts/shared-service';
-import 'rxjs/add/operator/startWith';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
-const breadcrumb: any[] = [
+import { startWith, map } from 'rxjs/operators';
+
+
+
+import { SharedService } from '../../../layouts/shared-service';
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const BREADCRUMBS: any[] = [
   {
     title: 'UI Elements',
     link: '#'
@@ -25,76 +31,41 @@ const breadcrumb: any[] = [
   styleUrls: ['input.component.scss']
 })
 export class PageInputComponent implements OnInit {
-  pageTitle: string = 'Input';
-  breadcrumb: any[] = breadcrumb;
-
-  stateCtrl: FormControl;
-  filteredStates: any;
-
-  states = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming',
+  pageTitle: string = 'Inputs';
+  breadcrumb: any[] = BREADCRUMBS;
+  emailFormControl = new FormControl('', [Validators.required, Validators.pattern(EMAIL_REGEX)]);
+  options: FormGroup;
+  autoControl: FormControl;
+  filteredOptions: Observable<string[]>;
+  autoOptions: string[] = [
+    'One',
+    'Two',
+    'Three'
   ];
 
-  constructor( private _sharedService: SharedService ) {
-    this.stateCtrl = new FormControl();
-    this.filteredStates = this.stateCtrl.valueChanges
-      .startWith(null)
-      .map(name => this.filterStates(name));
+  constructor( private _sharedService: SharedService, private fb: FormBuilder ) {
     this._sharedService.emitChange(this.pageTitle);
+    this.autoControl = new FormControl();
+    this.options = fb.group({
+      'color': 'primary',
+      'fontSize': [16, [Validators.min(10), Validators.max(20)]],
+    });
   }
 
-  filterStates(val: string) {
-    return val ? this.states.filter((s) => new RegExp(val, 'gi').test(s)) : this.states;
+  ngOnInit() {
+    this.filteredOptions = this.autoControl.valueChanges
+      .pipe(
+			startWith(null),
+			map(val => val ? this.filter(val) : this.autoOptions.slice())
+			);
   }
 
-  ngOnInit() {}
+  getFontSize() {
+    return Math.max(10, this.options.value.fontSize);
+  }
+
+  filter(val: string): string[] {
+    return this.autoOptions.filter(option =>
+      option.toLowerCase().indexOf(val.toLowerCase()) === 0);
+  }
 }

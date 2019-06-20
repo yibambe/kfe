@@ -8,9 +8,9 @@
         for you as well as outstanding customer service for every transaction.</p>
     </div>
     <div class="col-md-6 text-md-right">
-      <p class="mb-2"><strong>Order Date:</strong> <i>May 17, 2017</i></p>
-      <p class="mb-2"><strong>Order Status:</strong> <ni-badge [color]="'success'" [borderRadius]="false">Paid</ni-badge></p>
-      <p><strong>Order ID:</strong> #158450</p>
+      <p class="mb-2"><strong>Order Date: </strong><i>May 17, 2017</i></p>
+      <p class="mb-2"><strong>Order Status: </strong><ni-badge [color]="'success'" [borderRadius]="false">Paid</ni-badge></p>
+      <p><strong>Order ID: </strong>#158450</p>
     </div>
   </div><!-- .row -->
 
@@ -90,9 +90,9 @@
     <p class="mb-2"><strong>Sub-total:</strong> $4120.00</p>
     <p class="mb-0"><strong>VAT (12.5):</strong> $515</p>
     <p class="h4 mt-2">$4635.00 USD</p>
-    <div class="hidden-print text-center text-md-right">
-      <button md-raised-button color="primary">Make a Payment</button>
-      <button md-raised-button><i class="fa fa-print mr-2"></i> Print</button>
+    <div class="hidden-print text-center text-md-right page-buttons">
+      <button ni-button [view]="'accent'">Make a Payment</button>
+      <button ni-button [view]="'accent'" afterIcon="sli-printer" outline="true">Print</button>
     </div>
   </div>
 

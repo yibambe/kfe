@@ -11,12 +11,12 @@ import { Component, OnInit, Input } from '@angular/core';
     '[class.ni-btn-right]': 'align === "right"',
     '[class.ni-btn-large]': 'size === "large"',
     '[class.ni-btn-small]': 'size === "small"',
-    '[class.ni-btn-default]': 'type === "default"',
-    '[class.ni-btn-accent]': 'type === "accent"',
-    '[class.ni-btn-info]': 'type === "info"',
-    '[class.ni-btn-success]': 'type === "success"',
-    '[class.ni-btn-warning]': 'type === "warning"',
-    '[class.ni-btn-error]': 'type === "error"',
+    '[class.ni-btn-default]': 'view === "default"',
+    '[class.ni-btn-accent]': 'view === "accent"',
+    '[class.ni-btn-info]': 'view === "info"',
+    '[class.ni-btn-success]': 'view === "success"',
+    '[class.ni-btn-warning]': 'view === "warning"',
+    '[class.ni-btn-error]': 'view === "error"',
     '[class.ni-btn-outline]': 'outline',
     '[class.ni-btn-gradient]': 'gradient',
     '[class.ni-btn-disabled]': 'disabled',
@@ -32,15 +32,13 @@ export class NiButtonComponent implements OnInit {
   @Input() lineStyle: string;
   @Input() align: string = 'center';
   @Input() size: string = 'default';
-  @Input() type: string = 'default';
+  @Input() view: string = 'default';
   @Input() shape: number | string;
   @Input() beforeIcon: string;
   @Input() afterIcon: string;
   @Input() iconAnimation: boolean = false;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {
-    //console.log(this.disabled);
-  }
+  ngOnInit() { }
 }

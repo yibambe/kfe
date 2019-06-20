@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../../layouts/shared-service';
 
-const breadcrumb: any[] = [
+const BREADCRUMBS: any[] = [
   {
     title: 'UI Elements',
     link: '#'
@@ -24,7 +24,7 @@ const breadcrumb: any[] = [
 })
 export class PageRadioButtonComponent implements OnInit {
   pageTitle: string = 'Radio button';
-  breadcrumb: any[] = breadcrumb;
+  breadcrumb: any[] = BREADCRUMBS;
   favoriteSeason: string = 'Winter';
   seasons: string[] = [
     'Winter',

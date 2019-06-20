@@ -19,7 +19,11 @@ export class MenuComponent implements OnInit {
   constructor( private menuService: MenuService ) { }
 
   getMenuItems(): void {
-    this.menuService.getMenuItems().then(menuItems => this.menuItems = menuItems);
+		const OBSERVER = {
+			next: x => this.menuItems = x,
+			error: err => this.menuService.handleError(err)
+		}
+		this.menuService.getData().subscribe(OBSERVER);
   }
 
   getLiClasses(item: any, isActive: any) {

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { CustomValidators } from 'ng2-validation';
 import { SharedService } from '../../../layouts/shared-service';
 
-const breadcrumb: any[] = [
+const BREADCRUMBS: any[] = [
   {
     title: 'UI Elements',
     link: '#'
@@ -27,7 +27,7 @@ const confirmPassword = new FormControl('', CustomValidators.equalTo(password));
 })
 export class PageFormValidationComponent implements OnInit {
   pageTitle: string = 'Form validation';
-  breadcrumb: any[] = breadcrumb;
+  breadcrumb: any[] = BREADCRUMBS;
   public form: FormGroup;
 
   constructor( private fb: FormBuilder, private _sharedService: SharedService ) {

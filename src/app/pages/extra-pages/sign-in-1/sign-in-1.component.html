@@ -1,20 +1,20 @@
 <ni-card [title]="'Sign in with your app id to continue'" [align]="'center'">
   <form (ngSubmit)="onSubmit()">
-    <md-input-container>
-      <input mdInput placeholder="Username" value="">
-    </md-input-container>
+    <mat-form-field>
+      <input matInput placeholder="Username" value="">
+    </mat-form-field>
 
-    <md-input-container>
-      <input mdInput placeholder="Password" value="">
-    </md-input-container>
+    <mat-form-field>
+      <input matInput placeholder="Password" value="">
+    </mat-form-field>
 
     <div class="text-left mb-module">
-      <md-checkbox>
+      <mat-checkbox>
         Keep me signed in
-      </md-checkbox>
+      </mat-checkbox>
     </div>
 
-    <button md-raised-button color="primary" type="submit">Ingresar</button>
+    <button ni-button [view]="'accent'" [block]="true">Sign In</button>
 
     <div class="additional-info">
       <a href="extra-layout/sign-up">Sign up</a>

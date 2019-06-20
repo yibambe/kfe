@@ -1,12 +1,21 @@
 import { Component, OnInit, ChangeDetectionStrategy, Inject, ViewChild, TemplateRef } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
-import { MdDialog, MdDialogRef, MdDialogConfig, MD_DIALOG_DATA } from '@angular/material';
-import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours } from 'date-fns';
-import { Subject } from 'rxjs/Subject';
+import { MatDialog, MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
+import {
+	startOfDay,
+	endOfDay,
+	subDays,
+	addDays,
+	endOfMonth,
+	isSameDay,
+	isSameMonth,
+	addHours
+	} from 'date-fns';
+import { Subject } from 'rxjs';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import { SharedService } from '../../layouts/shared-service';
 
-const breadcrumb: any[] = [
+const BREADCRUMBS: any[] = [
   {
     title: 'Main',
     link: '#'
@@ -40,11 +49,11 @@ const colors: any = {
 })
 export class PageCalendarComponent implements OnInit {
   pageTitle: string = 'Calendar';
-  breadcrumb: any[] = breadcrumb;
-  dialogRef: MdDialogRef<CalendarDialogComponent>;
+  breadcrumb: any[] = BREADCRUMBS;
+  dialogRef: MatDialogRef<CalendarDialogComponent>;
   lastCloseResult: string;
   actionsAlignment: string;
-  config: MdDialogConfig = {
+  config: MatDialogConfig = {
     disableClose: false,
     width: '',
     height: '',
@@ -116,7 +125,7 @@ export class PageCalendarComponent implements OnInit {
 
   activeDayIsOpen = true;
 
-  constructor(public dialog: MdDialog, @Inject(DOCUMENT) doc: any, private _sharedService: SharedService) {
+  constructor(public dialog: MatDialog, @Inject(DOCUMENT) doc: any, private _sharedService: SharedService) {
     this._sharedService.emitChange(this.pageTitle);
   }
 
@@ -182,10 +191,10 @@ export class PageCalendarComponent implements OnInit {
     <strong>Event:</strong>
     <pre>{{ data?.event | json }}</pre>
   </div>
-  <button md-button type="button" (click)="dialogRef.close()">Close dialog</button>`
+  <button ni-button type="button" [view]="'default'" (click)="dialogRef.close()">Close dialog</button>`
 })
 export class CalendarDialogComponent {
   constructor(
-    public dialogRef: MdDialogRef<CalendarDialogComponent>,
-    @Inject(MD_DIALOG_DATA) public data: any) { }
+    public dialogRef: MatDialogRef<CalendarDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 }

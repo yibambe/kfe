@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../../layouts/shared-service';
 
-const breadcrumb: any[] = [
+const BREADCRUMBS: any[] = [
   {
     title: 'Pages',
     link: '#'
@@ -102,7 +102,7 @@ const timelineData: any[] = [
 })
 export class PageTimelineComponent implements OnInit {
   pageTitle: string = 'Timeline';
-  breadcrumb: any[] = breadcrumb;
+  breadcrumb: any[] = BREADCRUMBS;
   timelineData: any[] = timelineData;
 
   constructor( private _sharedService: SharedService ) {

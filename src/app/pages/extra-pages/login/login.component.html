@@ -1,0 +1,25 @@
+<ni-card [title]="'Konexus'" [align]="'center'">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+    <mat-form-field>
+      <input formControlName="Numero_persona" matInput placeholder="Usuario" value="">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input formControlName="Contrasena" type="password" matInput placeholder="Contraseña" value="">
+    </mat-form-field>
+
+    <div class="text-left mb-module">
+      <mat-checkbox>
+        Manten session
+      </mat-checkbox>
+    </div>
+    <!-- <input type="text" [formControl]="favoriteColorControl"> -->
+    <button  ni-button [view]="'accent'" [block]="true">Ingresar</button>
+
+    <div class="additional-info">
+      <!-- <a href="extra-layout/sign-up">Sign up</a> -->
+      <span class="divider"></span>
+      <a href="extra-layout/forgot">Olvidaste tu contraseña?</a>
+    </div>
+  </form>
+</ni-card>

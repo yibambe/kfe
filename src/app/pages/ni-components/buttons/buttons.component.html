@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-6">
-    <ni-card title="Button size">
+    <ni-card [title]="'Button size'">
       <div class="buttons-list">
         <button ni-button size="large">Large</button>
         <button ni-button>Default</button>
@@ -10,7 +10,7 @@
   </div>
 
   <div class="col-sm-6">
-    <ni-card title="Button shape">
+    <ni-card [title]="'Button shape'">
       <div class="buttons-list">
         <button ni-button>Default</button>
         <button ni-button shape="0">Square</button>
@@ -20,7 +20,7 @@
   </div>
 
   <div class="col-sm-6">
-    <ni-card title="Button width">
+    <ni-card [title]="'Button width'">
       <div class="buttons-list">
         <button ni-button>Auto</button>
         <br>
@@ -31,7 +31,7 @@
   </div>
 
   <div class="col-sm-6">
-    <ni-card title="Button align">
+    <ni-card [title]="'Button align'">
       <div class="buttons-list">
         <button ni-button block="true" align="center">Center</button>
         <button ni-button block="true" align="left">Left</button>
@@ -41,7 +41,7 @@
   </div>
 
   <div class="col-sm-6">
-    <ni-card title="Button tag">
+    <ni-card [title]="'Button tag'">
       <div class="buttons-list">
         <button ni-button>Button</button>
         <a href="#" ni-button>Link</a>
@@ -50,33 +50,33 @@
   </div>
 
   <div class="col-sm-6">
-    <ni-card title="Button style">
+    <ni-card [title]="'Button style'">
       <div class="buttons-list">
         <button ni-button>Default</button>
-        <button ni-button type="accent">Accent</button>
-        <button ni-button type="success">Success</button>
-        <button ni-button type="info">Info</button>
-        <button ni-button type="warning">Warning</button>
-        <button ni-button type="error">Error</button>
+        <button ni-button [view]="'accent'">Accent</button>
+        <button ni-button [view]="'success'">Success</button>
+        <button ni-button [view]="'info'">Info</button>
+        <button ni-button [view]="'warning'">Warning</button>
+        <button ni-button [view]="'error'">Error</button>
       </div>
     </ni-card>
   </div>
 
   <div class="col-sm-6">
-    <ni-card title="Outline button">
+    <ni-card [title]="'Outline button'">
       <div class="buttons-list">
         <button ni-button outline="true">Default</button>
-        <button ni-button type="accent" outline="true" lineStyle="dashed">Accent</button>
-        <button ni-button type="success" outline="true">Success</button>
-        <button ni-button type="info" outline="true" shape="17px">Info</button>
-        <button ni-button type="warning" outline="true" lineStyle="dotted">Warning</button>
-        <button ni-button type="error" outline="true" shape="3px">Error</button>
+        <button ni-button [view]="'accent'" outline="true" lineStyle="dashed">Accent</button>
+        <button ni-button [view]="'success'" outline="true">Success</button>
+        <button ni-button [view]="'info'" outline="true" shape="17px">Info</button>
+        <button ni-button [view]="'warning'" outline="true" lineStyle="dotted">Warning</button>
+        <button ni-button [view]="'error'" outline="true" shape="3px">Error</button>
       </div>
     </ni-card>
   </div>
 
   <div class="col-sm-6">
-    <ni-card title="Button with custom color / background">
+    <ni-card [title]="'Button with custom color / background'">
       <div class="buttons-list">
         <button ni-button [color]="'#fbc2eb'">Simple color</button>
         <button ni-button [color]="['#ea8080', '#fff']">Hovered color</button>
@@ -88,7 +88,7 @@
   </div>
 
   <div class="col-sm-6">
-    <ni-card title="Gradient button">
+    <ni-card [title]="'Gradient button'">
       <div class="buttons-list">
         <button ni-button [gradient]="['#f6d365', '#fda085']">Button</button>
         <button ni-button [gradient]="['#c780b3', '#50408e']">Button</button>
@@ -100,25 +100,25 @@
   </div>
 
   <div class="col-sm-6">
-    <ni-card title="Disabled button">
+    <ni-card [title]="'Disabled button'">
       <div class="buttons-list">
         <button ni-button disabled="true">Disabled</button>
         <button ni-button disabled="true" [gradient]="['#c780b3', '#50408e']">Disabled</button>
-        <button ni-button disabled="true" type="accent">Disabled</button>
-        <button ni-button disabled="true" type="warning" outline="true">Disabled</button>
-        <button ni-button disabled="true" type="info" outline="true" lineStyle="dotted" shape="17px">Disabled</button>
+        <button ni-button disabled="true" [view]="'accent'">Disabled</button>
+        <button ni-button disabled="true" [view]="'warning'" outline="true">Disabled</button>
+        <button ni-button disabled="true" [view]="'info'" outline="true" lineStyle="dotted" shape="17px">Disabled</button>
       </div>
     </ni-card>
   </div>
 
   <div class="col-sm-6">
-    <ni-card title="Icon button" class="mb-0">
+    <ni-card [title]="'Icon button'" class="mb-0">
       <div class="buttons-list">
         <button ni-button beforeIcon="sli-bell">Before</button>
         <button ni-button afterIcon="fa fa-save" [gradient]="['#cce451', '#4b650d']">After</button>
-        <button ni-button afterIcon="sli-printer" type="success" outline="true"></button>
+        <button ni-button afterIcon="sli-printer" [view]="'success'" outline="true"></button>
         <button ni-button afterIcon="fa fa-shopping-basket" [bg]="['#f0f4c3', '#aab71c']" [color]="'#000'">Add</button>
-        <button ni-button beforeIcon="fa fa-dropbox" type="info" outline="true" lineStyle="dashed">Dropbox</button>
+        <button ni-button beforeIcon="fa fa-dropbox" [view]="'info'" outline="true" lineStyle="dashed">Dropbox</button>
         <button ni-button afterIcon="sli-trash" iconAnimation="true" type="error">Remove</button>
       </div>
     </ni-card>

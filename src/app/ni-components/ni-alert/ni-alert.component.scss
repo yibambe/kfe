@@ -54,11 +54,11 @@
     }
     /deep/ .material-icons {
       color: accent-color(500);
-      margin: 0 ($module-rem * 2) 0 0;
+      margin: 0 $module-rem 0 0;
       vertical-align: top;
 
       .rtl & {
-        margin: 0 0 0 ($module-rem * 2);
+        margin: 0 0 0 $module-rem;
       }
     }
     &.success-alert {

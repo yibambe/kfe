@@ -1,26 +1,26 @@
 <ni-card [title]="'Sign in with your app id to continue'" [align]="'center'">
   <form (ngSubmit)="onSubmit()">
-    <md-input-container>
-      <input mdInput placeholder="Username" value="">
-    </md-input-container>
+    <mat-form-field>
+      <input matInput placeholder="Username" value="">
+    </mat-form-field>
 
-    <md-input-container>
-      <input mdInput placeholder="Password" value="">
-    </md-input-container>
+    <mat-form-field>
+      <input matInput placeholder="Password" value="">
+    </mat-form-field>
 
     <div class="text-left mb-module">
-      <md-checkbox>
+      <mat-checkbox>
         Keep me signed in
-      </md-checkbox>
+      </mat-checkbox>
     </div>
 
-    <button md-raised-button color="primary" type="submit" class="submit">Sign In</button>
+    <button ni-button [view]="'accent'" [block]="true">Sign In</button>
 
     <div class="social-divider">Sign in with</div>
 
     <div class="social-login">
-      <button md-raised-button type="button" class="bg-facebook text-white"><i class="fa fa-facebook"></i> Facebook</button>
-      <button md-raised-button type="button" class="bg-twitter text-white"><i class="fa fa-twitter"></i> Twitter</button>
+      <button ni-button [bg]="'#3b5998'" beforeIcon="fa fa-facebook">Facebook</button>
+      <button ni-button [bg]="'#00ACED'" beforeIcon="fa fa-twitter">Twitter</button>
     </div>
 
     <div class="additional-info">
