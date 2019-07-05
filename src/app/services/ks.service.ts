@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class KsService {
-  private url: String = 'kws20190606050927.azurewebsites.net';
+  private url: String = 'konexusbackend.azurewebsites.net';
 
   constructor(public http: HttpClient) { }
 

@@ -29,12 +29,15 @@ export class LoginComponent implements OnInit {
       Contrasena: new FormControl(),
     });
     debugger;
-    // http://localhost:65505/api/Values 
-    // let yibambe = this.http.get("https://kws20190606050927.azurewebsites.net/api/values").pipe().subscribe(x => {
-    //   console.dir(x);
-    // });
+    
+    let tmpLogin = { PersonNumber: 2 , Password: "DRAKE"};
 
-    this.service.Consume("https://kws20190606050927.azurewebsites.net/api/values").subscribe(x => {
+     this.service.Consume2("https://konexusbackend.azurewebsites.net/api/values",tmpLogin,"POST").subscribe(z=>{
+       console.dir(z);
+     })
+
+    this.service.Consume("https://konexusbackend.azurewebsites.net/api/values").subscribe(x => {
+      
       console.dir(x);
     });
 
