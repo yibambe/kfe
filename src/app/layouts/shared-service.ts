@@ -6,7 +6,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 @Injectable()
 export class SharedService {
 
- 
+
   //http: HttpClient;
 
   constructor(private http: HttpClient) {
@@ -45,18 +45,18 @@ export class SharedService {
     return this.http.get(actionParam).pipe();
   }
 
-  public Consume2(actionParam,dataParam,methodParam) {
+  public Consume2(actionParam, dataParam, methodParam) {
 
     let result = null;
     switch (methodParam) {
       case "GET":
-          result = this.http.get(actionParam).pipe();
+        result = this.http.get(actionParam).pipe();
         break;
 
-        case "POST":
-            result = this.http.post(actionParam,dataParam).pipe();
+      case "POST":
+        result = this.http.post(actionParam, dataParam).pipe();
         break;
-    
+
       default:
         break;
     }

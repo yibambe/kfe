@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SharedService } from './../../../layouts/shared-service';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
+import { DebugRenderer2 } from '@angular/core/src/view/services';
 
 @Component({
   selector: 'app-login',
@@ -28,18 +29,21 @@ export class LoginComponent implements OnInit {
       Numero_persona: new FormControl(),
       Contrasena: new FormControl(),
     });
-    debugger;
-    
-    let tmpLogin = { PersonNumber: 2 , Password: "DRAKE"};
+    // debugger;
 
-     this.service.Consume2("https://konexusbackend.azurewebsites.net/api/values",tmpLogin,"POST").subscribe(z=>{
-       console.dir(z);
-     })
+    let tmpLogin = { PersonNumber: 2, Password: "DRAKE" };
 
-    this.service.Consume("https://konexusbackend.azurewebsites.net/api/values").subscribe(x => {
-      
-      console.dir(x);
-    });
+    this.service.Consume2("https://konexusbackend.azurewebsites.net/api/usuario/login", tmpLogin, "POST").subscribe(
+      x => {
+        debugger;
+        console.dir(x);
+      }
+    );
+
+    // this.service.Consume("https://konexusbackend.azurewebsites.net/api/values").subscribe(x => {
+
+    //   console.dir(x);
+    // });
 
 
 
