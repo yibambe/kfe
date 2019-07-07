@@ -13,7 +13,8 @@ export class SharedService {
     //this.http = httpClient;
   }
   // kfe start
-  private url: String = 'https://localhost:44348/';
+  // private url: String = 'https://localhost:44348/';
+  private url: String = 'https://konexusbackend.azurewebsites.net/api';
 
   // private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
   // private options: RequestOptions = new RequestOptions({ headers: this.headers });
@@ -50,11 +51,11 @@ export class SharedService {
     let result = null;
     switch (methodParam) {
       case "GET":
-        result = this.http.get(actionParam).pipe();
+        result = this.http.get(`${this.url}/${actionParam}`).pipe();
         break;
 
       case "POST":
-        result = this.http.post(actionParam, dataParam).pipe();
+        result = this.http.post(`${this.url}/${actionParam}`, dataParam).pipe();
         break;
 
       default:

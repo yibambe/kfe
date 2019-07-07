@@ -33,7 +33,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
 
-    this.service.Consume(JSON.stringify(this.loginForm.value), 'api/login', "POST").subscribe(
+    debugger;
+
+    let tmpdata = JSON.stringify(this.loginForm.value);
+    
+    this.service.Consume('usuario/login', tmpdata, "POST").subscribe(
       data => {
         debugger;
         console.dir(data);
