@@ -26,33 +26,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      Numero_persona: new FormControl(),
-      Contrasena: new FormControl(),
+      PersonNumber: new FormControl(),
+      Password: new FormControl(),
     });
-    // debugger;
-
-    let tmpLogin = { PersonNumber: 2, Password: "DRAKE" };
-
-    this.service.Consume2("https://konexusbackend.azurewebsites.net/api/usuario/login", tmpLogin, "POST").subscribe(
-      x => {
-        debugger;
-        console.dir(x);
-      }
-    );
-
-    // this.service.Consume("https://konexusbackend.azurewebsites.net/api/values").subscribe(x => {
-
-    //   console.dir(x);
-    // });
-
-
-
-
   }
 
   onSubmit() {
 
-    this.service.Execute(JSON.stringify(this.loginForm.value), 'api/login', 1).subscribe(
+    this.service.Consume(JSON.stringify(this.loginForm.value), 'api/login', "POST").subscribe(
       data => {
         debugger;
         console.dir(data);
@@ -62,12 +43,6 @@ export class LoginComponent implements OnInit {
         console.log("Error", error);
       }
     );
-
-    // this.service.Execute('', 'api/Login', 0).subscribe(data => {
-    //   debugger;
-    //   console.dir(data);
-    //   this.data = data;
-    // });;
     // this.router.navigate(['/default-layout/dashboard']);
   }
 

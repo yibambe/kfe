@@ -13,7 +13,7 @@ export class SharedService {
     //this.http = httpClient;
   }
   // kfe start
-  private url: String = 'https://kws20190606050927.azurewebsites.net';
+  private url: String = 'https://localhost:44348/';
 
   // private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
   // private options: RequestOptions = new RequestOptions({ headers: this.headers });
@@ -41,11 +41,11 @@ export class SharedService {
   //   });
   // }
 
-  public Consume(actionParam) {
-    return this.http.get(actionParam).pipe();
-  }
+  // public Consume(actionParam) {
+  //   return this.http.get(actionParam).pipe();
+  // }
 
-  public Consume2(actionParam, dataParam, methodParam) {
+  public Consume(actionParam, dataParam, methodParam) {
 
     let result = null;
     switch (methodParam) {
