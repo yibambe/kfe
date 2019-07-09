@@ -29,15 +29,20 @@ export class LoginComponent implements OnInit {
       PersonNumber: new FormControl(),
       Password: new FormControl(),
     });
+
+    this.service.ConsumeOptional();
+    
   }
 
   onSubmit() {
 
-    debugger;
+    // debugger;
 
-    let tmpdata = JSON.stringify(this.loginForm.value);
-    
-    this.service.Consume('usuario/login', tmpdata, "POST").subscribe(
+    // let tmpdata = JSON.stringify(this.loginForm.value);
+    let tmpdata = { PersonNumber: 2, Password: "DRAKE" };
+    let tmpdata2 = JSON.stringify(tmpdata);
+
+    this.service.Consume('usuario/login', tmpdata2, "POST").subscribe(
       data => {
         debugger;
         console.dir(data);

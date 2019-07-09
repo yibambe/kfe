@@ -7,40 +7,29 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 export class SharedService {
 
 
-  //http: HttpClient;
+  http: HttpClient;
 
-  constructor(private http: HttpClient) {
-    //this.http = httpClient;
+  constructor(private httpClient: HttpClient) {
+    this.http = httpClient;
   }
   // kfe start
-  // private url: String = 'https://localhost:44348/';
-  private url: String = 'https://konexusbackend.azurewebsites.net/api';
+  private url: String = 'https://localhost:44348/api';
+  // private url: String = 'https://konexusbackend.azurewebsites.net/api';
 
-  // private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-  // private options: RequestOptions = new RequestOptions({ headers: this.headers });
+  private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
+  private options: RequestOptions = new RequestOptions({ headers: this.headers });
 
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-    }
-    // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
-  };
+  
+  public ConsumeOptional() {
 
-  // public Consume() {
-  //   this.httpClient.get(`${this.url}/api/login`).subscribe(data => {
-  //     debugger;
-  //     console.dir(data);
-  //   });
-  // }
+    let tmp = "{ PersonNumber: 2 , Password: 'DRAKE' }";
+    let uri = `${this.url}/usuario/login`;
+    console.dir(uri);
+    this.http.post(uri, tmp).subscribe(data => {
+      debugger;
+      console.dir(data);
+    });
+  }
 
   // public Consume(actionParam) {
   //   return this.http.get(actionParam).pipe();
@@ -49,13 +38,24 @@ export class SharedService {
   public Consume(actionParam, dataParam, methodParam) {
 
     let result = null;
+
     switch (methodParam) {
       case "GET":
-        result = this.http.get(`${this.url}/${actionParam}`).pipe();
+        result = this.http.get(`${this.url}/${actionParam}`).subscribe(x=>{
+          console.dir(x);
+        },(error)=> {
+          console.dir(error);
+        });
         break;
 
       case "POST":
-        result = this.http.post(`${this.url}/${actionParam}`, dataParam).pipe();
+        result = this.http.post(`${this.url}/${actionParam}`, dataParam, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).pipe().subscribe(x=>{
+          console.dir(x);
+        });
         break;
 
       default:
@@ -82,10 +82,10 @@ export class SharedService {
       //   break;
       // POST
       case 1:
-        // request = this.http.post(`${this.url}/${actionParam}`, data, this.options).pipe(map(x => { return x.json(); }));
+        // request = this.http2.post(`${this.url}/${actionParam}`, data, this.options).pipe(map(x => { return x.json(); }));
         // request.next();
 
-        request = this.http.post(`${this.url}/${actionParam}`, { responseType: 'text', headers }).pipe(retry(3), catchError(this.handleError));
+      //  request = this.http2.post(`${this.url}/${actionParam}`, { responseType: 'text', headers }).pipe(retry(3), catchError(this.handleError));
 
         break;
       // // PUT
