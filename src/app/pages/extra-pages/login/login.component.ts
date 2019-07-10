@@ -16,11 +16,8 @@ import { DebugRenderer2 } from '@angular/core/src/view/services';
 
 export class LoginComponent implements OnInit {
 
-  // service: SharedService;
   loginForm: FormGroup;
   data: any = {};
-  // public loginForm: FormGroup;
-  // favoriteColorControl = new FormControl('');
 
   constructor(private router: Router, private service: SharedService, private http: HttpClient) { }
 
@@ -32,14 +29,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-
+    event.preventDefault(); 
     this.service.Consume('usuario/login', this.loginForm.value, "POST").subscribe(
       (data) => {
-        console.dir(data);
+       //  console.dir(data);
         this.router.navigate(['/default-layout/dashboard']);
       },
       (error) => {
         debugger;
+        // TODO
+        // alert error custom
         console.log("Error", error);
       }
     );
