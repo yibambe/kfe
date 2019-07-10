@@ -29,44 +29,20 @@ export class LoginComponent implements OnInit {
       PersonNumber: new FormControl(),
       Password: new FormControl(),
     });
-
-    let tmpParameters = { PersonNumber: 2, Password: "DRAKE" };
-    // let tmpresponse = this.service.Execute(JSON.stringify(tmpParameters), "usuario/login", 1).subscribe(
-    //   (data) => {
-    //         if (data.error === 0 || data.error === '0') {
-    //               alert(data.errorDescripcion);
-    //         } else {
-    //               //this.lfGetAddress(data);
-    //                console.dir(data)
-    //         }
-    //   });
-
-    this.service.Consume("usuario/login", tmpParameters, "POST").subscribe(x => {
-      debugger;
-      console.dir(x);
-    });
-
-    //console.dir(tmpresponse);
-
   }
 
   onSubmit() {
 
-    // debugger;
-
-    let tmpdata = JSON.stringify(this.loginForm.value);
-
-    this.service.Consume('usuario/login', tmpdata, "POST").subscribe(
-      data => {
-        debugger;
+    this.service.Consume('usuario/login', this.loginForm.value, "POST").subscribe(
+      (data) => {
         console.dir(data);
+        this.router.navigate(['/default-layout/dashboard']);
       },
-      error => {
+      (error) => {
         debugger;
         console.log("Error", error);
       }
     );
-    // this.router.navigate(['/default-layout/dashboard']);
   }
 
 }
