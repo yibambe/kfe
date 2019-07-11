@@ -29,10 +29,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    event.preventDefault(); 
+    event.preventDefault();
     this.service.Consume('usuario/login', this.loginForm.value, "POST").subscribe(
       (data) => {
-       //  console.dir(data);
         this.router.navigate(['/default-layout/dashboard']);
       },
       (error) => {
