@@ -6,7 +6,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 @Injectable()
 export class SharedService {
 
-
+  // https://codingpotions.com/angular-login-sesion/
   constructor(private http: HttpClient) {
   }
 
