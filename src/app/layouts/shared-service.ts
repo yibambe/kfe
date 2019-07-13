@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Subject, throwError } from 'rxjs';
-import { Http, RequestOptions, Response, Headers } from '@angular/http';
-import { map, retry, catchError } from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import { RequestOptions, Response, Headers } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { Usuario } from "./../models/usuario.model";
+
 @Injectable()
 export class SharedService {
 
+  private isUserLoggedIn;
+  public usserLogged: Usuario;
+
   // https://codingpotions.com/angular-login-sesion/
   constructor(private http: HttpClient) {
+    this.isUserLoggedIn = false;
   }
 
   // kfe start
@@ -15,6 +20,17 @@ export class SharedService {
   // private url: String = 'https://konexusbackend.azurewebsites.net/api';
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
   private options: RequestOptions = new RequestOptions({ headers: this.headers });
+
+  setUserLoggedIn(user: Usuario) {
+    this.isUserLoggedIn = true;
+    this.usserLogged = user;
+    localStorage.setItem('currentUser', JSON.stringify(user));
+
+  }
+
+  getUserLoggedIn() {
+    return JSON.parse(localStorage.getItem('currentUser'));
+  }
 
   public Consume(actionParam, dataParam, methodParam) {
     // const headerOptions = new HttpHeaders();

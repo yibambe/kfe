@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SharedService } from 'app/layouts/shared-service';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 @Component({
   moduleId: module.id,
@@ -8,20 +10,28 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   host: {
     '[class.app-navbar]': 'true',
     '[class.show-overlay]': 'showOverlay'
-  }
+  },
+  providers: [SharedService]
+ 
 })
 export class HorizontalNavbarComponent implements OnInit {
   @Input() title: string;
   @Input() openedSidebar: boolean;
   @Output() sidebarState = new EventEmitter();
+  @Input() currentUser: string;
+
   showOverlay: boolean;
 
-  constructor() {
+  constructor(private service: SharedService, private http: HttpClient) {
     this.openedSidebar = false;
     this.showOverlay = false;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    let tmp = this.service.getUserLoggedIn();
+    this.currentUser = tmp.ShortName;
+    this.title = "Inicio";
+  }
 
   open(event) {
     let clickedComponent = event.target.closest('.nav-item');

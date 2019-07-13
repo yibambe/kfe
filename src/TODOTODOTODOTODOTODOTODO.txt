@@ -1,0 +1,5 @@
+20190713
+cambiar logo inicial assist
+analizar en anexsoft el asp net identity
+intentar emularlo en base de datos konexus pruebas
+analizar esta pagina http://www.enrique7mc.com/2017/04/diferencia-entre-constructor-y-ngoninit-en-angular-2/
