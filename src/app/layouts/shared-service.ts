@@ -16,8 +16,8 @@ export class SharedService {
   }
 
   // kfe start
-  private url: String = 'https://localhost:44348/api';
-  // private url: String = 'https://konexusbackend.azurewebsites.net/api';
+  // private url: String = 'https://localhost:44348/api';
+  private url: String = 'https://konexusbackend.azurewebsites.net/api';
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
   private options: RequestOptions = new RequestOptions({ headers: this.headers });
 
